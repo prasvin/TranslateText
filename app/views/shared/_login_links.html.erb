@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+<div id = "login-form">
+  <fieldset>
+  <%= current_user.name %>
+  <%= link_to "Sign Out", destroy_user_session_path  %>
+  </fieldset>
+</div>
+<% else %>
+  <%= form_tag(user_session_path, :id => "login-form") do %>
+    <fieldset>
+      <span class="text">
+        <%= email_field_tag 'user[email]' %>
+      </span>
+      <span class="text">
+        <%= password_field_tag 'user[password]' %>
+      </span>
+        <%= submit_tag "Login", :class => "login" %>
+    </fieldset>
+  <% end %>
+<% end %>

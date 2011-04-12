@@ -64,7 +64,7 @@ p {margin-bottom:10px;line-height:1.667em}
 .p0 {margin:0}
 .p1 {margin-bottom:18px}
 .price {text-align:center;display:block;font-size:30px;line-height:1.2em;letter-spacing:-1px;padding-bottom:10px}
-#slogan {background:url(../images/slogan-bg.jpg) no-repeat left top;width:980px;height:220px;margin:12px 0 0 0;position:relative;left:3px;color:#fff;text-shadow:1px 1px #3e7901;position:relative}
+#slogan {background:url(../images/header-image.png) no-repeat left top;width:980px;height:220px;margin:12px 0 0 0;position:relative;left:3px;color:#fff;text-shadow:1px 1px #3e7901;position:relative}
 #slogan h2 {font-size:26px;text-transform:uppercase;color:#fff}
 #slogan h2 span {color:#262626}
 #slogan .inside {position:absolute;left:360px;top:50px;width:576px}
