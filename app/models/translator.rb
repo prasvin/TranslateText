@@ -4,6 +4,12 @@ class Translator < User
 
   before_create :zero_points
 
+  def clear_idle_microtasks
+    self.microtasks.each do |microtask|
+      microtask.clear_status
+    end
+  end
+
   private
 
   def zero_points

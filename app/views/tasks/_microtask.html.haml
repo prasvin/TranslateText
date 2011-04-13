@@ -24,7 +24,7 @@
             %span.price
               = "#{mt.points.round(1)} Points"
             %div.aligncenter
-              = link_to( "<span><span>Choose It</span></span>".html_safe, :root, :class => "link1" )
+              = link_to( "<span><span>Choose It</span></span>".html_safe, translate_microtask_path(mt.id), :class => "link1" )
   %div.pagination
     = paginate @microtasks
 

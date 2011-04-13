@@ -10,6 +10,8 @@ TranslateTxt::Application.routes.draw do
   root :to => "home#index"
 
   match "/user" => 'home#user', :as => 'user_root'
+  match "/task/translate_microtask/:id" => 'tasks#translate_microtask', :as => 'translate_microtask'
+  match "/task/update_microtask/:id" => 'tasks#update_microtask', :as => 'update_microtask'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

@@ -299,3 +299,27 @@ div.pagination {
   font-size: 15px;
   margin: 15px 0px;
 }
+
+#paragraph{
+  font-size:14px;
+  margin-top:20px;
+}
+
+.paragraph{
+  font-weight:bold;
+  font-size:25px;
+  margin-bottom:20px;
+}
+
+#translated{
+  font-size:14px;
+  margin-top:20px;
+  padding-top:10px;
+
+}
+
+.translated{
+  font-weight:bold;
+  font-size:25px;
+  margin-bottom:20px;
+}

@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = current_user.tasks.find(params[:id])
+    @task = Task.find(params[:id])
     @microtasks = @task.microtasks
   end
 
@@ -22,4 +22,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def translate_microtask
+    @microtask = Microtask.find(params[:id])
+    @microtask.translator = current_user
+    @microtask.status = "Processing"
+    @microtask.save
+  end
+
+  def update_microtask
+    @microtask = Microtask.find(params[:id])
+    @microtask.translated_paragraph = params[:translated_paragraph]
+    @microtask.status = "Submitted"
+    @microtask.translator = current_user
+    if @microtask.save
+      flash[:notice] = "The task has been translated"
+      redirect_to user_root_path
+    end
+  end
 end

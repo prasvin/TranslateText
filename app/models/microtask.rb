@@ -10,6 +10,16 @@ class Microtask < ActiveRecord::Base
   scope :with_language_to, lambda {|language_id| self.joins(:task) & Task.with_language_to(language_id) }
   scope :with_language_from, lambda {|language_id| self.joins(:task) & Task.with_language_from(language_id) }
   scope :pays_more_than, lambda {|p| where("points >= ?", p) }
+  scope :open, where('status = ?', "Open")
+
+  def clear_status
+    if self.status == "Processing"
+      self.status = "Open"
+      self.translator = nil
+      self.save
+    end
+  end
+
 end
 
 

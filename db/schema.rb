@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413073602) do
+ActiveRecord::Schema.define(:version => 20110413111827) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20110413073602) do
     t.datetime "updated_at"
     t.integer  "paragraph_index"
     t.text     "translated_paragraph"
+    t.string   "status",               :default => "Open"
   end
 
   create_table "tasks", :force => true do |t|

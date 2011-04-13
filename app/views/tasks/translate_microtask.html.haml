@@ -1,0 +1,17 @@
+.inside.bot-indent
+  = render :partial => "shared/slogan", :locals => { :h2span => "Translate", |
+     :h2 => "Now",                                             |
+     :p => "Fill in your translation for the selected paragraph and submit it to the requester"                      |
+    }                                                                      |
+  %h2.extra
+  = form_tag( update_microtask_path(@microtask.id) ) do
+    %div.paragraph
+      = label_tag :paragraph, "#{@microtask.task.get_language_from.name}"
+      %p#paragraph
+        = label_tag :paragraph ,"#{@microtask.paragraph}"
+    %div.translated
+      = label_tag :translated_paragraph, "#{@microtask.task.get_language_to.name}"
+      %p#translated
+        = text_area_tag :translated_paragraph, "", :rows => 10, :cols => 150
+    = submit_tag "Submit"
+    = link_to("Back", user_root_path)
