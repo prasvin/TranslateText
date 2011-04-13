@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  has_many :microtasks
+  has_many :microtasks, :dependent => :destroy
   belongs_to :requester
 
   validates :title, :presence => true
@@ -10,6 +10,7 @@ class Task < ActiveRecord::Base
   validates :language_to, :presence => true
 
   after_initialize :date_today
+  after_create :build_microtasks
 
   def get_language_from
     Language.find(self.language_from)
@@ -26,12 +27,12 @@ class Task < ActiveRecord::Base
   def build_microtasks
     microtask_texts = self.text.split("\r\n\r\n").map{|x| x.strip }
     microtask_texts.delete_if{ |x| x.length == 0 }
-           (0..microtask_texts.length-1).each do |index|
-             self.microtasks.build( :paragraph => microtask_texts[index],
-                                                      :paragraph_index => index,
-                                                      :points => microtask_texts[index].length * self.points / self.text.length
-                                                   ).save
-           end
+    (0..microtask_texts.length-1).each do |index|
+      self.microtasks.build( :paragraph => microtask_texts[index],
+                             :paragraph_index => index,
+                             :points => microtask_texts[index].length * self.points / self.text.length
+                          ).save
+    end
   end
 
   private

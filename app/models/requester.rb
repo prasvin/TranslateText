@@ -1,5 +1,5 @@
 class Requester < User
-  has_many :tasks
+  has_many :tasks, :dependent => :destroy
 
 end
 

@@ -1,0 +1,8 @@
+.inside.bot-indent
+  = render :partial => "shared/slogan", :locals => { :h2span => "Showing", |
+     :h2 => @task.title,                                                   |
+     :p => "View and Edit Microtasks from Here"                            |
+    }                                                                      |
+  - @microtasks.each do |microtask|
+    = microtask.paragraph_index
+    = microtask.paragraph

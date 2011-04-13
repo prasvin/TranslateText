@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = current_user.tasks.find(params[:id])
+    @microtasks = @task.microtasks
   end
 
   def new
@@ -13,7 +15,6 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(params[:task])
     if @task.save
-      @task.build_microtasks
       flash[:notice] = "New Task '#{@task.title}' Created"
       redirect_to user_root_path
     else

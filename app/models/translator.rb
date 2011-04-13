@@ -1,6 +1,6 @@
 class Translator < User
 
-  has_many :microtasks
+  has_many :microtasks, :dependent => :nullify
 
   before_create :zero_points
 

@@ -1,0 +1,19 @@
+.inside.bot-indent
+  = render :partial => "shared/slogan", :locals => { :h2span => "Welcome", |
+     :h2 => current_user.name,                                             |
+     :p => "Remaining Points: #{current_user.points}"                      |
+    }                                                                      |
+  %h2.extra
+    Find Tasks
+  = form_tag( user_root_path, :method => :get) do
+    = label_tag :language_from, "Search For"
+    = select_tag :language_from, options_for_select(Language.all.map{|l| [l.name, l.id] }, params[:language_from])
+    = label_tag :language_to, "To"
+    = select_tag :language_to, options_for_select(Language.all.map{|l| [l.name, l.id] }, params[:language_to])
+    = label_tag :points, "Worth At Least"
+    = text_field_tag :points, params[:points]
+    = label_tag :points, "Points"
+    = submit_tag "Go"
+  = render 'tasks/microtask'
+
+

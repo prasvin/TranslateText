@@ -6,8 +6,11 @@ class HomeController < ApplicationController
     if current_user.type == "Requester"
       @tasks = current_user.tasks
       render 'requester'
-
+    else
+      @microtasks = Microtask.all
+      render 'translator'
     end
+
   end
 
   def requester
