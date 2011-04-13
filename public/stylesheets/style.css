@@ -278,3 +278,24 @@ h2 a {
 h2 a:hover {
   text-decoration: underline;
 }
+
+.inner h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#content .inside {
+  padding: 0 2px;
+  width: 1000px;
+}
+
+div.box.col-1 {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+div.pagination {
+  text-align: center;
+  font-size: 15px;
+  margin: 15px 0px;
+}

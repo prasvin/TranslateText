@@ -1,3 +1,30 @@
-- @microtasks.each do |mt|
-  = mt.task.title
-  = mt.paragraph
+%div.inside
+  %div.wrapper.row-1
+    - @microtasks.each do |mt|
+      %div.box.col-1
+        %div.inner
+          %h3
+            = mt.task.title
+          %ul.info-list
+            %li
+              %span Requester
+              = mt.task.requester.name
+            %li
+              %span
+                = "From #{mt.task.get_language_from.name}"
+              = "To #{mt.task.get_language_to.name}"
+            %li
+              %span
+                Deadline
+              = mt.task.deadline.to_date
+            %li
+              %span
+                Sample:
+              = mt.paragraph.slice(0..15)
+            %span.price
+              = "#{mt.points.round(1)} Points"
+            %div.aligncenter
+              = link_to( "<span><span>Choose It</span></span>".html_safe, :root, :class => "link1" )
+  %div.pagination
+    = paginate @microtasks
+

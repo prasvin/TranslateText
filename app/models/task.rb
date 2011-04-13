@@ -12,6 +12,10 @@ class Task < ActiveRecord::Base
   after_initialize :date_today
   after_create :build_microtasks
 
+  scope :with_language_to, lambda{ |language_id| where(:language_to => language_id) }
+  scope :with_language_from, lambda{ |language_id| where(:language_from => language_id) }
+
+
   def get_language_from
     Language.find(self.language_from)
   end

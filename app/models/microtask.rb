@@ -6,6 +6,10 @@ class Microtask < ActiveRecord::Base
   validates :paragraph_index, :presence => true
   validates :points, :presence => true
   validates :task, :presence => true
+
+  scope :with_language_to, lambda {|language_id| self.joins(:task) & Task.with_language_to(language_id) }
+  scope :with_language_from, lambda {|language_id| self.joins(:task) & Task.with_language_from(language_id) }
+  scope :pays_more_than, lambda {|p| where("points >= ?", p) }
 end
 
 
