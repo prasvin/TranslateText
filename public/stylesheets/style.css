@@ -239,3 +239,42 @@ a.jqTransformChecked {background-position:left top}
 #navigation{
   float:right;
 }
+
+.box.extra {
+  width: 900px;
+  margin-left: 50px;
+  border-radius: 10px;
+}
+
+.col-1 {
+  width: 270px;
+}
+.col-2, .col-3, .col-4, .col-5 {
+  width: 140px;
+}
+#slogan{
+  height:100px;
+  border-radius:5px;
+}
+#slogan h2 span {
+color: #262626;
+margin-right: 20px;
+}
+
+#slogan .inside {
+position: absolute;
+left: 75px;
+top: 15px;
+width: 576px;
+}
+
+h2 a {
+  font-size: 16px;
+  float: right;
+  margin-right: 60px;
+  margin-top: 20px;
+}
+
+h2 a:hover {
+  text-decoration: underline;
+}

@@ -8,17 +8,19 @@ describe Microtask do
   it { should validate_presence_of :task }
 end
 
+
+
 # == Schema Information
 #
 # Table name: microtasks
 #
-#  id            :integer         not null, primary key
-#  task_id       :integer
-#  translator_id :integer
-#  point         :float
-#  paragraph     :text
-#  deadline      :datetime
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id              :integer         not null, primary key
+#  task_id         :integer
+#  translator_id   :integer
+#  points          :float
+#  paragraph       :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#  paragraph_index :integer
 #
 

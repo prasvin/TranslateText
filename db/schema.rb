@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412055111) do
+ActiveRecord::Schema.define(:version => 20110413055028) do
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microtasks", :force => true do |t|
     t.integer  "task_id"
@@ -19,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20110412055111) do
     t.text     "paragraph"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "paragraph_index"
   end
 
   create_table "tasks", :force => true do |t|

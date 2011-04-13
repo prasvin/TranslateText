@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+[
+  { :name => "English" },
+  { :name => "Nepali" },
+  { :name => "Hindi" },
+  { :name => "Japanese" },
+  { :name => "Urdu" }
+].each do |attribute|
+    Language.find_or_create_by_name(attribute)
+end

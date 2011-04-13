@@ -39,3 +39,7 @@ end
 Microtask.blueprint do
   # Attributes here
 end
+
+Language.blueprint do
+  # Attributes here
+end

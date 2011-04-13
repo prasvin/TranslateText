@@ -9,6 +9,7 @@ describe User do
 
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -24,7 +25,7 @@ end
 #  current_sign_in_ip   :string(255)
 #  last_sign_in_ip      :string(255)
 #  name                 :string(255)
-#  points               :float
+#  points               :float           default(0.0)
 #  type                 :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime

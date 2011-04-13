@@ -1,92 +1,58 @@
 <div class="inside bot-indent">
-  <div id="slogan">
-    <div class="inside">
-      <h2><span>Welcome</span><%= current_user.name %></h2>
-      <p>Remaining Points: <%= current_user.points %></p>
-    </div>
-  </div>
-  <h2 class="extra">My Page</h2>
-  <div class="box extra">
+  <%= render :partial => "shared/slogan", :locals => { :h2span => "Welcome",
+                                           :h2 => current_user.name,
+                                           :p => "Remaining Points: #{current_user.points}"
+                                          }
+  %>
+  <h2 class="extra">My Current Tasks <%= link_to "Request New Translation ", new_task_path %></h2>
 
-      <div class="left-indent line-ver1">
+  <div class="box extra">
+    <div class="left-indent line-ver1">
 
               <article class="col-1 indent">
-                <h4>Task</h4>
-                <ul class="info-list1">
-                  <li>Disk Space</li>
-                  <li>Bandwidth</li>
-                  <li>Monthly Price</li>
-                  <li>99.9% uptime</li>
-                  <li>24/7 support</li>
-                  <li>Daily backups</li>
-                  <li>No Contract</li>
-                  <li>30 day money back guarantee</li>
-                  <li>Free Setup</li>
-                  <li>Order</li>
+                <h4 class="aligncenter">Title</h4>
+                <ul class="info-list1 ">
+                  <% @tasks.each do |task| %>
+                    <li><%= link_to task.title, task_path(task) %></li>
+                  <% end %>
                 </ul>
               </article>
               <article class="col-2 indent">
-                <h4 class="aligncenter">asdfdas</h4>
+                <h4 class="aligncenter">From</h4>
                 <ul class="info-list1 alt">
-                  <li>2,000 MB</li>
-                  <li>50,000 mb</li>
-                  <li>$35.00</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
+                  <% @tasks.each do |task| %>
+                    <li><%= task.get_language_from.name %></li>
+                  <% end %>
                 </ul>
-                <div class="aligncenter"><a href="#" class="link3"><span><span>Buy Now!</span></span></a></div>
               </article>
               <article class="col-3 indent">
-                <h4 class="aligncenter">Standard</h4>
+                <h4 class="aligncenter">To</h4>
                 <ul class="info-list1 alt">
-                  <li>3,000mb</li>
-                  <li>65,000mb</li>
-                  <li>$45.00</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
+                   <% @tasks.each do |task| %>
+                      <li><%= task.get_language_to.name %></li>
+                    <% end %>
                 </ul>
-                <div class="aligncenter"><a href="#" class="link3"><span><span>Buy Now!</span></span></a></div>
               </article>
               <article class="col-4 indent">
-                <h4 class="aligncenter">Advanced</h4>
+                <h4 class="aligncenter">Deadline</h4>
                 <ul class="info-list1 alt">
-                  <li>4,000mb</li>
-                  <li>100,00mb</li>
-                  <li>$65.00</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
+                   <% @tasks.each do |task| %>
+                      <li><%= task.deadline.to_date %></li>
+                    <% end %>
                 </ul>
-                <div class="aligncenter"><a href="#" class="link3"><span><span>Buy Now!</span></span></a></div>
+
               </article>
               <article class="col-5 indent">
-                <h4 class="aligncenter">Other</h4>
+                <h4 class="aligncenter">Completed</h4>
                 <ul class="info-list1 alt">
-                  <li>6,000mb</li>
-                  <li>150,000</li>
-                  <li>$100</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
-                  <li>yes</li>
+                   <% @tasks.each do |task| %>
+                      <li><%= "#{task.completed} %" %></li>
+                    <% end %>
                 </ul>
-                <div class="aligncenter"><a href="#" class="link3"><span><span>Buy Now!</span></span></a></div>
               </article>
               <div class="clear"></div>
 
       </div>
 
   </div>
+</div>

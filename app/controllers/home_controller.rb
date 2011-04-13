@@ -4,7 +4,9 @@ class HomeController < ApplicationController
 
   def user
     if current_user.type == "Requester"
+      @tasks = current_user.tasks
       render 'requester'
+
     end
   end
 

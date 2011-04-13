@@ -13,6 +13,7 @@ describe Task do
   it { should belong_to :requester }
 end
 
+
 # == Schema Information
 #
 # Table name: tasks
@@ -24,7 +25,7 @@ end
 #  requester_id  :integer
 #  language_from :integer
 #  language_to   :integer
-#  completed     :float
+#  completed     :float           default(0.0)
 #  points        :float
 #  created_at    :datetime
 #  updated_at    :datetime
