@@ -1,0 +1,11 @@
+$("#slogan .inside p a").remove();
+$("#slogan .inside p").append("<%= escape_javascript(render(:partial => 'form')) %>");
+$( "#slider" ).slider({
+          range: "min",
+          value: 0,
+          min: 0,
+          max: 1000,
+          slide: function( event, ui ) {
+            $( "#points" ).val( ui.value );
+          }
+        });

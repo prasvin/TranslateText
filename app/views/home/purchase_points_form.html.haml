@@ -6,10 +6,6 @@
           = "Purchase"
         = "Points"
       %p
-        = form_tag(purchase_points_path) do
-          = label_tag :points, "Points"
-          = text_field_tag :points, "0", :size => 5
-          %span#slider
-          = submit_tag "Purchase"
+        = render "form"
 
 
