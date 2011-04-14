@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def user
     if current_user.type == "Requester"
-      @tasks = current_user.tasks
+      @tasks = current_user.tasks.order('created_at DESC')
       render 'requester'
     else
       current_user.clear_idle_microtasks
@@ -52,10 +52,8 @@ class HomeController < ApplicationController
     end
   end
 
-  def requester
-  end
-
-  def translator
+  def log
+    @log = LogEntry.where(:user_id => current_user.id)
   end
 
 end

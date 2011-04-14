@@ -1,0 +1,10 @@
+%ul
+  - @log.each do |entry|
+    %li
+      = entry.created_at.to_date
+      |
+      = entry.user.name
+      |
+      = entry.message
+      |
+      = "#{entry.microtask.task.title} #{ entry.microtask.paragraph_index }"

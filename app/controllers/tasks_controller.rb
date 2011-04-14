@@ -28,6 +28,7 @@ class TasksController < ApplicationController
     @microtask = Microtask.find(params[:id])
     @microtask.translator = current_user
     @microtask.status = "Processing"
+    @microtask.log_entries.create({:message =>"Processing", :user_id => @microtask.translator.id })
     @microtask.save
   end
 
@@ -37,6 +38,7 @@ class TasksController < ApplicationController
     @microtask.status = "Submitted"
     @microtask.translator = current_user
     if @microtask.save
+      @microtask.log_entries.create({:message =>"Submitted", :user_id => @microtask.translator.id })
       flash[:notice] = "The task has been translated"
       redirect_to user_root_path
     end
@@ -48,6 +50,7 @@ class TasksController < ApplicationController
     @microtask.translator.points += @microtask.points
     if @microtask.translator.save
       if @microtask.save
+        @microtask.log_entries.create({:message =>"Accepted", :user_id => @microtask.translator.id })
         flash[:notice] = "Paragraph #{@microtask.paragraph_index + 1} has been accepted"
         redirect_to task_path(@microtask.task)
       end
@@ -56,6 +59,7 @@ class TasksController < ApplicationController
 
   def reject_microtask
      @microtask = Microtask.find(params[:id])
+     @microtask.log_entries.create({:message =>"Rejected", :user_id => @microtask.translator.id })
      @microtask.translator = nil
      @microtask.translated_paragraph = nil
      @microtask.status = "Open"

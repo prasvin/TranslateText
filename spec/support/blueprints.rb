@@ -49,3 +49,7 @@ end
 Language.blueprint do
   name { "Nepali" }
 end
+
+LogEntry.blueprint do
+  # Attributes here
+end

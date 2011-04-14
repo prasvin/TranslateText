@@ -349,15 +349,20 @@ div.pagination {
 }
 
 .alert {
-  background: red;
+  background: rgba(255, 0,0, 0.4);
   margin: 0px 20px;
   padding: 0px 10px;
   color: #fff;
 }
 
 .notice {
-  background: green;
+  background: rgba(0, 255, 0, 0.4);;
   margin: 0px 20px;
   padding: 0px 10px;
   color: #fff;
+}
+
+.tail-top {
+  padding-bottom: 20px;
+  background: #e7e7e7;
 }

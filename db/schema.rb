@@ -10,10 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414050941) do
+ActiveRecord::Schema.define(:version => 20110414115036) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_entries", :force => true do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "microtask_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

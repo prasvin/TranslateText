@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :type, :presence => true
+  has_many :log_entries, :dependent => :nullify
 
   private
 

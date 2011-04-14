@@ -1,11 +1,14 @@
 class Microtask < ActiveRecord::Base
   belongs_to :task
   belongs_to :translator
+  has_many :log_entries, :dependent => :destroy
 
   validates :paragraph, :presence => true
   validates :paragraph_index, :presence => true
   validates :points, :presence => true
   validates :task, :presence => true
+
+  after_create :log_entry
 
   scope :with_language_to, lambda {|language_id| self.joins(:task) & Task.with_language_to(language_id) }
   scope :with_language_from, lambda {|language_id| self.joins(:task) & Task.with_language_from(language_id) }
@@ -19,6 +22,12 @@ class Microtask < ActiveRecord::Base
       self.translator = nil
       self.save
     end
+  end
+
+  private
+
+  def log_entry
+    self.log_entries.create({:message => "Created", :user_id => self.task.requester.id})
   end
 
 end
