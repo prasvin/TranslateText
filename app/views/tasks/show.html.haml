@@ -1,8 +1,29 @@
 .inside.bot-indent
   = render :partial => "shared/slogan", :locals => { :h2span => "Showing", |
      :h2 => @task.title,                                                   |
-     :p => "View and Edit Microtasks from Here"                            |
+     :p => "View and accept/reject translations from Here"                 |
     }                                                                      |
-  - @microtasks.each do |microtask|
-    = microtask.paragraph_index
-    = microtask.paragraph
+  %h2.extra
+  %div#tasklist
+    - @microtasks.each do |microtask|
+      %h3
+        = "Paragraph #{microtask.paragraph_index + 1}"
+        ="current status :#{microtask.status}"
+      %div
+        %div
+          %h5
+            = microtask.task.get_language_from.name
+          %p
+            = microtask.paragraph
+        - if microtask_processed(microtask)
+          %div
+            %h5
+              = microtask.task.get_language_to.name
+            %p
+              = microtask.translated_paragraph
+            %p
+              = microtask.translator.name
+            %div#button
+              - if !microtask_accepted?(microtask)
+                =link_to "Accept",accept_microtask_path(microtask.id)
+              =link_to "Reject",reject_microtask_path(microtask.id)

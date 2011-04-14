@@ -39,4 +39,27 @@ class TasksController < ApplicationController
       redirect_to user_root_path
     end
   end
+
+  def accept_microtask
+    @microtask = Microtask.find(params[:id])
+    @microtask.status = "Accepted"
+    @microtask.translator.points += @microtask.points
+    if @microtask.translator.save
+      if @microtask.save
+        flash[:notice] = "Paragraph #{@microtask.paragraph_index + 1} has been accepted"
+        redirect_to task_path(@microtask.task)
+      end
+    end
+  end
+
+  def reject_microtask
+     @microtask = Microtask.find(params[:id])
+     @microtask.translator = nil
+     @microtask.translated_paragraph = nil
+     @microtask.status = "Open"
+       if @microtask.save
+         flash[:notice] = "Paragraph #{@microtask.paragraph_index + 1} has been rejected"
+         redirect_to task_path(@microtask.task)
+       end
+   end
 end

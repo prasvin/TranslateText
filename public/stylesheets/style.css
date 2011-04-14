@@ -323,3 +323,9 @@ div.pagination {
   font-size:25px;
   margin-bottom:20px;
 }
+
+#tasklist {
+  width: 800px;
+  margin-left: 80px;
+  margin-top: 20px;
+}
