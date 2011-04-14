@@ -33,7 +33,13 @@ Requester.blueprint do
 end
 
 Task.blueprint do
-  # Attributes here
+  requester
+  title { "Test Task" }
+  text { "aaa\r\n\r\na a a a a a" }
+  language_to { 1 }
+  language_from { 3 }
+  points { 10 }
+  deadline { DateTime.now }
 end
 
 Microtask.blueprint do
@@ -41,5 +47,5 @@ Microtask.blueprint do
 end
 
 Language.blueprint do
-  # Attributes here
+  name { "Nepali" }
 end

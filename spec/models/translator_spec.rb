@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Translator do
 
-  it {should have_many :microtasks}
+  it { should have_many(:microtasks).dependent(:nullify) }
 
   before(:each) do
     translator = Translator.make(:points => 5)

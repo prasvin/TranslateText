@@ -25,17 +25,20 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: microtasks
 #
-#  id              :integer         not null, primary key
-#  task_id         :integer
-#  translator_id   :integer
-#  points          :float
-#  paragraph       :text
-#  created_at      :datetime
-#  updated_at      :datetime
-#  paragraph_index :integer
+#  id                   :integer         not null, primary key
+#  task_id              :integer
+#  translator_id        :integer
+#  points               :float
+#  paragraph            :text
+#  created_at           :datetime
+#  updated_at           :datetime
+#  paragraph_index      :integer
+#  translated_paragraph :text
+#  status               :string(255)     default("Open")
 #
 

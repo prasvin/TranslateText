@@ -1,5 +1,9 @@
 class Language < ActiveRecord::Base
-  #default_scope order("name ASC")
+
+  validates :name, :presence => true, :uniqueness => true
+
+  default_scope order("name ASC")
+
 end
 
 # == Schema Information

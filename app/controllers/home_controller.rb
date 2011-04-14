@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   MTASKS_PER_PAGE = 4
 
+  before_filter :authenticate_user!, :except => [:index]
+
   def index
   end
 

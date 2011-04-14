@@ -27,7 +27,6 @@ end
 
 Given /^a user exists with email "([^"]*)" and password "([^"]*)"$/ do |email, password|
   Requester.create( :name =>"Dipil", :email => email, :password => password, :password_confirmation => password, :type=>"Requester" )
-  puts User.all
 end
 
 

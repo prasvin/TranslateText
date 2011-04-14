@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Requester do
 
-  it { should have_many :tasks}
+  it { should have_many(:tasks).dependent(:destroy)}
 
   context "When a requester is created" do
     it "Should Have type as requester" do

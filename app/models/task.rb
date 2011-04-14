@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
   validates :requester, :presence => true
   validates :language_from, :presence => true
   validates :language_to, :presence => true
-  validates :points, :numericality => { :greater_than => 0}
+  validates :points, :numericality => { :greater_than_or_equal_to => 0}, :presence => true
 
   after_initialize :date_today
   after_create :build_microtasks
@@ -43,13 +43,13 @@ class Task < ActiveRecord::Base
   private
 
   def validate_points
-    if self.points
-      if self.points > self.requester.points
-        self.errors.add(:points, "Not Enough Points")
-        return false
-      end
+    if self.points > self.requester.points
+      self.errors.add(:points, "Not Enough Points")
+      return false
+    else
+      self.requester.points -= self.points
+      self.requester.save
     end
-    return true
   end
 
   def date_today
@@ -57,6 +57,7 @@ class Task < ActiveRecord::Base
   end
 
 end
+
 
 
 # == Schema Information
@@ -70,7 +71,6 @@ end
 #  requester_id  :integer
 #  language_from :integer
 #  language_to   :integer
-#  completed     :float           default(0.0)
 #  points        :float
 #  created_at    :datetime
 #  updated_at    :datetime

@@ -6,11 +6,11 @@
   <p><%= f.label :name %><br />
   <%= f.text_field :name %></p>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+  <p><%= f.label 'sign_up_email', "Email" %><br />
+  <%= f.email_field :email, :id => 'sign_up_email' %></p>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+  <p><%= f.label 'sign_up_password', "Password" %><br />
+  <%= f.password_field :password, :id => 'sign_up_password' %></p>
 
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>

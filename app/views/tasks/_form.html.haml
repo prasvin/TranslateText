@@ -1,8 +1,8 @@
 = semantic_form_for(@task) do |f|
   =f.inputs do
     =f.input :title
-    =f.input :language_from, :as =>:select, :collection => Language.all.map{ |l| [l.name, l.id]}
-    =f.input :language_to, :as =>:select, :collection => Language.all.map{ |l| [l.name, l.id]}
+    =f.input :language_from, :as =>:select, :collection => Language.all.map{ |l| [l.name, l.id]}, :label => "From"
+    =f.input :language_to, :as =>:select, :collection => Language.all.map{ |l| [l.name, l.id]}, :label => "To"
     =f.input :deadline
     =f.input :points
     =f.input :text
