@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 # --------------------------------------------------------------------------------------------------
-# Please note: If you're subclassing Formtastic::SemanticFormBuilder in a Rails 3 project, 
-# Formtastic uses class_attribute for these configuration attributes instead of the deprecated 
-# class_inheritable_attribute. The behaviour is slightly different with subclasses (especially 
-# around attributes with Hash or Array) values, so make sure you understand what's happening. 
+# Please note: If you're subclassing Formtastic::SemanticFormBuilder in a Rails 3 project,
+# Formtastic uses class_attribute for these configuration attributes instead of the deprecated
+# class_inheritable_attribute. The behaviour is slightly different with subclasses (especially
+# around attributes with Hash or Array) values, so make sure you understand what's happening.
 # See the documentation for class_attribute in ActiveSupport for more information.
 # --------------------------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@
 
 # Should select fields have a blank option/prompt by default?
 # Defaults to true.
-# Formtastic::SemanticFormBuilder.include_blank_for_select_by_default = true
+Formtastic::SemanticFormBuilder.include_blank_for_select_by_default = false
 
 # Set the string that will be appended to the labels/fieldsets which are required
 # It accepts string or procs and the default is a localized version of

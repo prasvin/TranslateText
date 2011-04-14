@@ -14,6 +14,8 @@ TranslateTxt::Application.routes.draw do
   match "/task/update_microtask/:id" => 'tasks#update_microtask', :as => 'update_microtask'
   match "/task/accept_microtask/:id" => 'tasks#accept_microtask', :as => 'accept_microtask'
   match "/task/reject_microtask/:id" => 'tasks#reject_microtask', :as => 'reject_microtask'
+  post "user/purchase_points" => 'home#purchase_points', :as => 'purchase_points'
+  get "user/purchase_points" => 'home#purchase_points_form', :as => 'purchase_points'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

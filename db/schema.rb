@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413111827) do
+ActiveRecord::Schema.define(:version => 20110414050941) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20110413111827) do
     t.integer  "requester_id"
     t.integer  "language_from"
     t.integer  "language_to"
-    t.float    "completed",     :default => 0.0
     t.float    "points"
     t.datetime "created_at"
     t.datetime "updated_at"

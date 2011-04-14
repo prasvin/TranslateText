@@ -1,7 +1,7 @@
 <div class="inside bot-indent">
   <%= render :partial => "shared/slogan", :locals => { :h2span => "Welcome",
                                            :h2 => current_user.name,
-                                           :p => "Remaining Points: #{current_user.points}"
+                                           :p => "Remaining Points: #{current_user.points.round(2)} #{link_to("Buy More", purchase_points_path)}"
                                           }
   %>
   <h2 class="extra">My Current Tasks <%= link_to "Request New Translation ", new_task_path %></h2>
@@ -55,4 +55,7 @@
       </div>
 
   </div>
+</div>
+<div id = "test">
+  lksadjflkajsdflkjasdl;fkjas;lkdfjalk;sdfj;lakdj
 </div>

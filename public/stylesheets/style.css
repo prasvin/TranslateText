@@ -329,3 +329,35 @@ div.pagination {
   margin-left: 80px;
   margin-top: 20px;
 }
+#tasklist p {
+  margin:0px 15px 15px 15px;
+  padding: 10px 20px;
+  border-radius:7px;
+  background-color:#e7e7e7;
+  font-size:12px;
+}
+
+#tasklist h6 {
+  float:right;
+  font-weight:bold;
+}
+
+#slider {
+  width: 300px;
+  margin:5px 10px 0px 10px;
+  display: inline-block;
+}
+
+.alert {
+  background: red;
+  margin: 0px 20px;
+  padding: 0px 10px;
+  color: #fff;
+}
+
+.notice {
+  background: green;
+  margin: 0px 20px;
+  padding: 0px 10px;
+  color: #fff;
+}

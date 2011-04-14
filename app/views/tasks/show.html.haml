@@ -3,7 +3,7 @@
      :h2 => @task.title,                                                   |
      :p => "View and accept/reject translations from Here"                 |
     }                                                                      |
-  %h2.extra
+  %h2.extra paragraphs
   %div#tasklist
     - @microtasks.each do |microtask|
       %h3
@@ -21,9 +21,10 @@
               = microtask.task.get_language_to.name
             %p
               = microtask.translated_paragraph
-            %p
-              = microtask.translator.name
+            %h6
+              = "By: #{microtask.translator.name}"
             %div#button
               - if !microtask_accepted?(microtask)
-                =link_to "Accept",accept_microtask_path(microtask.id)
-              =link_to "Reject",reject_microtask_path(microtask.id)
+                = link_to "Accept",accept_microtask_path(microtask.id)
+              = link_to "Reject",reject_microtask_path(microtask.id)
+  = link_to "<< Back",user_root_path

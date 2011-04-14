@@ -1,4 +1,5 @@
 class Language < ActiveRecord::Base
+  #default_scope order("name ASC")
 end
 
 # == Schema Information

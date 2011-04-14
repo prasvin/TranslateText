@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %title TranslateTxt
+    = stylesheet_link_tag :all
+    = javascript_include_tag 'jquery', 'jquery-ui-1.8.11.custom.min', 'cufon-yui', 'cufon-replace', 'jquery.faded', 'jquery.jqtransform', 'script', 'Myriad_Pro_300.font', 'Myriad_Pro_400.font', 'rails', 'application'
+    = csrf_meta_tag
+    :javascript
+      $(function(){
+        $("#faded").faded({
+          speed: 500,
+          crossfade: true,
+          autoplay: 4000,
+          autopagination:false
+        });
+
+        $('#domain-form').jqTransform({imgPath:'jqtransformplugin/img/'});
+      });
+    %body#page1
+    .tail-top
+      / header
+      %header
+      .container
+        .header-box
+          .left
+            .right
+              %h1
+                - if user_signed_in?
+                  = link_to "<span>Translate</span>Text".html_safe, user_root_path
+                - else
+                  = link_to "<span>Translate</span>Text".html_safe, :root
+        = render "shared/login_links"
+      / content
+      %section#content
+      .container
+        %p.notice= notice
+        %p.alert= alert
+        = yield
+    / footer
+    %footer
+    .container
+      .inside
+        Copyright 2011 #{link_to("Translate Text", "#")} Sprout Technologies
+        %br/

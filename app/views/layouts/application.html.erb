@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TranslateTxt</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag 'jquery', 'jquery-ui-1.8.11.custom.min', 'cufon-yui', 'cufon-replace', 'jquery.faded', 'jquery.jqtransform', 'script', 'Myriad_Pro_300.font', 'Myriad_Pro_400.font', 'rails', 'application' %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript">
+    $(function(){
+      $("#faded").faded({
+        speed: 500,
+        crossfade: true,
+        autoplay: 4000,
+        autopagination:false
+      });
+
+      $('#domain-form').jqTransform({imgPath:'jqtransformplugin/img/'});
+    });
+  </script>
+</head>
+<body id="page1" >
+<div class="tail-top">
+<!-- header -->
+  <header>
+    <div class="container">
+      <div class="header-box">
+        <div class="left">
+          <div class="right">
+            <h1>
+              <% if user_signed_in? %>
+                <%= link_to "<span>Translate</span>Text".html_safe, user_root_path %>
+              <% else %>
+                <%= link_to "<span>Translate</span>Text".html_safe, :root %>
+              <% end %>
+            </h1>
+          </div>
+        </div>
+      </div>
+      <%= render "shared/login_links" %>
+    </div>
+  </header>
+
+<!-- content -->
+  <section id="content">
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+
+    </div>
+  </section>
+</div>
+<!-- footer -->
+<footer>
+  <div class="container">
+    <div class="inside">
+      Copyright 2011 <%= link_to("Translate Text", "#") %> Sprout Technologies<br>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

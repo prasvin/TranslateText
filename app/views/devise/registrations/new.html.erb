@@ -15,7 +15,7 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
-  <%= f.text_field :type,  :value => params[:user_type] %>
+  <%= f.hidden_field :type,  :value => params[:user_type] %>
 
   <p><%= f.submit "Sign up" %></p>
 <% end %>

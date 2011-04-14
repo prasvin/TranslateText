@@ -9,8 +9,9 @@ class Microtask < ActiveRecord::Base
 
   scope :with_language_to, lambda {|language_id| self.joins(:task) & Task.with_language_to(language_id) }
   scope :with_language_from, lambda {|language_id| self.joins(:task) & Task.with_language_from(language_id) }
-  scope :pays_more_than, lambda {|p| where("points >= ?", p) }
+  scope :pays_more_than, lambda {|p| where("microtasks.points >= ?", p) }
   scope :open, where('status = ?', "Open")
+  scope :accepted, where('status = ?', "Accepted")
 
   def clear_status
     if self.status == "Processing"

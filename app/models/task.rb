@@ -17,14 +17,6 @@ class Task < ActiveRecord::Base
   scope :with_language_to, lambda{ |language_id| where(:language_to => language_id) }
   scope :with_language_from, lambda{ |language_id| where(:language_from => language_id) }
 
-  after_validation(:on => :create) do
-      if self.points
-        if self.requester.points < self.points
-          return false;
-        end
-      end
-  end
-
   def get_language_from
     Language.find(self.language_from)
   end
@@ -33,8 +25,8 @@ class Task < ActiveRecord::Base
     Language.find(self.language_to)
   end
 
-  def split_text
-    self.text.split("\n\n").delete_if{ |x| x.length == 0 }
+  def completed
+    return (self.microtasks.accepted.length.to_f / self.microtasks.length).round(4) * 100
   end
 
   def build_microtasks

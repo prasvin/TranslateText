@@ -1,7 +1,7 @@
 .inside.bot-indent
   = render :partial => "shared/slogan", :locals => { :h2span => "Welcome", |
      :h2 => current_user.name,                                             |
-     :p => "Remaining Points: #{current_user.points}"                      |
+     :p => "Remaining Points: #{current_user.points.round(2)}"             |
     }                                                                      |
   %h2.extra
     Find Tasks
