@@ -7,6 +7,7 @@ class Requester < User
     self.microtasks.each do |microtask|
       log_entries << microtask.log_entries
     end
+    log_entries << LogEntry.where(:user_id => self.id).where('message like ?', "% Points Purchased").all
     log_entries.flatten.sort! {|x,y| y.created_at <=> x.created_at }
   end
 

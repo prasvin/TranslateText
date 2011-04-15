@@ -42,7 +42,7 @@ class HomeController < ApplicationController
       current_user.points += params[:points].to_f
       if current_user.save
         flash[:notice] = "#{params[:points]} points added"
-        current_user.microtasks.first.log_entries.create(:message => "#{params[:points]} Points Purchased", :user_id => current_user.id)
+        LogEntry.create(:message => "#{params[:points]} Points Purchased", :user_id => current_user.id)
         redirect_to user_root_path
       else
         flash[:notice] = "Your points cannot be been added"

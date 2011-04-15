@@ -13,7 +13,6 @@ Feature: Manage signups
         And I press "Sign up"
         Then 1 requester should exist
 
-  @javascript
   Scenario: Sign In
     Given I am not Authenticated
     And I am on the root page

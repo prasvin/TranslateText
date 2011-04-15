@@ -1,9 +1,17 @@
 %div#faded
   %ul.slides
     %li
+      %div#sentence
+        " Lost In Translation ? "
+      %div#message
+        Get Accurate Translations from Real People
       = image_tag("requester_home.png")
       = link_to("<span><span>Sign Up</span></span>".html_safe, new_user_registration_path(:user_type => "Requester") )
     %li
+      %div#sentence
+        " Earn Easy Money ! "
+      %div#message
+        No Experience or Qualifications Needed
       = image_tag("translator_home.png")
       = link_to("<span><span>Sign Up</span></span>".html_safe, new_user_registration_path(:user_type => "Translator") )
   %ul.pagination

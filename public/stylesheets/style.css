@@ -398,5 +398,20 @@ div.pagination_log {
 #faded ul.slides li img {
   position: absolute;
   top: 1px;
-  right: 200px;
+  right: 400px;
 }
+
+#sentence {
+  margin-left: 600px;
+  margin-top: 80px;
+  font-size: 35px;
+  font-family: cursive;
+}
+
+#message {
+  margin-left: 625px;
+  margin-top: 50px;
+  font-size: 18px;
+  font-family: cursive;
+}
+

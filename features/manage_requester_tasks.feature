@@ -24,17 +24,17 @@ Feature: Manage requester_tasks
         And I am on the user_root page
         When I follow "Nepali Translation"
         Then I should see "paragraphs"
-        And I should see "Paragraph 1"
-        And I should see "Paragraph 2"
-        And I should see "Paragraph 3"
+        And I should see "Paragraph1"
+        And I should see "Paragraph2"
+        And I should see "Paragraph3"
 
+    @javascript
     Scenario: Purchase points
         Given I should see "Remaining Points: 1000.0"
         And I follow "Purchase More"
         And I fill in "Points" with "100"
         And I press "Purchase"
-        Then I should see "100 points added"
-        And I should see "Remaining Points: 1100.0"
+        Then I should see "Remaining Points: 1100.0"
 
     Scenario: Check requester points during task creation
         Given a language "English" exists
