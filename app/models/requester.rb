@@ -1,5 +1,14 @@
 class Requester < User
   has_many :tasks, :dependent => :destroy
+  has_many :microtasks, :through => :tasks
+
+  def log_entries
+    log_entries = []
+    self.microtasks.each do |microtask|
+      log_entries << microtask.log_entries
+    end
+    log_entries.flatten.sort! {|x,y| y.created_at <=> x.created_at }
+  end
 
 end
 

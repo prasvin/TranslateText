@@ -1,7 +1,11 @@
 %div#faded
   %ul.slides
-    %li= link_to("<span><span>Sign Up</span></span>".html_safe, new_user_registration_path(:user_type => "Requester") )
-    %li= link_to("<span><span>Sign Up</span></span>".html_safe, new_user_registration_path(:user_type => "Translator") )
+    %li
+      = image_tag("requester_home.png")
+      = link_to("<span><span>Sign Up</span></span>".html_safe, new_user_registration_path(:user_type => "Requester") )
+    %li
+      = image_tag("translator_home.png")
+      = link_to("<span><span>Sign Up</span></span>".html_safe, new_user_registration_path(:user_type => "Translator") )
   %ul.pagination
     %li
       %a{:href => "#", :rel => "0" }

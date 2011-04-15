@@ -17,7 +17,7 @@ footer .container {text-align:center;line-height:1.667em;padding:26px 0}
 .fleft {float:left}
 .fright {float:right}
 .clear {clear:both}
-.col-1, .col-2, .col-3, .col-4, .col-5 {float:left}
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, col-7 {float:left}
 .alignright {text-align:right}
 .aligncenter {text-align:center}
 .wrapper {width:100%;overflow:hidden}
@@ -252,13 +252,21 @@ a.jqTransformChecked {background-position:left top}
 .col-2, .col-3, .col-4, .col-5 {
   width: 140px;
 }
+
+.col-6 {
+  width: 600px;
+}
+
+.col-7 {
+  width:400px;
+}
 #slogan{
   height:100px;
   border-radius:5px;
 }
 #slogan h2 span {
 color: #262626;
-margin-right: 20px;
+margin-right: 10px;
 }
 
 #slogan .inside {
@@ -298,6 +306,14 @@ div.pagination {
   text-align: center;
   font-size: 15px;
   margin: 15px 0px;
+  display: block;
+}
+
+div.pagination_log {
+  text-align: center;
+  font-size: 15px;
+  margin: 15px 0px;
+  display: inline-block;
 }
 
 #paragraph{
@@ -365,4 +381,22 @@ div.pagination {
 .tail-top {
   padding-bottom: 20px;
   background: #e7e7e7;
+}
+
+#content .left-indent {
+  padding-left: 39px;
+  text-align: center;
+}
+
+.inner h3 {
+  font-size: 18px;
+  font-weight: bold;
+  height: 40px;
+  overflow: hidden;
+}
+
+#faded ul.slides li img {
+  position: absolute;
+  top: 1px;
+  right: 200px;
 }

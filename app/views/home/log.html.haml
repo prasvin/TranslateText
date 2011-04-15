@@ -1,10 +1,26 @@
-%ul
-  - @log.each do |entry|
-    %li
-      = entry.created_at.to_date
-      |
-      = entry.user.name
-      |
-      = entry.message
-      |
-      = "#{entry.microtask.task.title} #{ entry.microtask.paragraph_index }"
+.inside.bot-indent
+  = render :partial => "shared/slogan", :locals => { :h2span => "Welcome", |
+     :h2 => current_user.name,                                             |
+     :p => "My Points: #{current_user.points.round(2)}"                    |
+    }                                                                      |
+  %h2.extra
+    My Log
+  .box.extra
+    .left-indent.line-ver1
+      %article.col-1.indent
+        %h4.aligncenter Date
+        %ul.info-list1.alt
+          - @log.each do |entry|
+            %li= formatted_time(entry.created_at)
+      %article.col-6.indent
+        %h4.aligncenter  Message
+        %ul.info-list1.alt
+          - @log.each do |entry|
+            %li= log_entry_message(entry)
+      - if current_user == "Translator"
+        %div.pagination_log
+          = paginate @log
+      %div.clear
+
+
+

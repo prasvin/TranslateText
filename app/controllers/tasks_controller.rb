@@ -51,6 +51,8 @@ class TasksController < ApplicationController
     if @microtask.translator.save
       if @microtask.save
         @microtask.log_entries.create({:message =>"Accepted", :user_id => @microtask.translator.id })
+        LogEntry.create({:message =>"#{@microtask.points} Points Earned", :user_id => @microtask.translator.id })
+        @microtask.log_entries.create({:message =>"#{@microtask.points} Points Paid", :user_id => current_user.id })
         flash[:notice] = "Paragraph #{@microtask.paragraph_index + 1} has been accepted"
         redirect_to task_path(@microtask.task)
       end

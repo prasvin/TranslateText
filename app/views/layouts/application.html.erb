@@ -21,24 +21,8 @@
 <body id="page1" >
 <div class="tail-top">
 <!-- header -->
-  <header>
-    <div class="container">
-      <div class="header-box">
-        <div class="left">
-          <div class="right">
-            <h1>
-              <% if user_signed_in? %>
-                <%= link_to "<span>Translate</span>Text".html_safe, user_root_path %>
-              <% else %>
-                <%= link_to "<span>Translate</span>Text".html_safe, :root %>
-              <% end %>
-            </h1>
-          </div>
-        </div>
-      </div>
-      <%= render "shared/login_links" %>
-    </div>
-  </header>
+
+      <%= render "shared/header" %>
 
 <!-- content -->
   <section id="content">

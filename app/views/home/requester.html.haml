@@ -1,8 +1,8 @@
 .inside.bot-indent
-  = render :partial => "shared/slogan", :locals => { :h2span => "Welcome", |
-     :h2 => current_user.name,                                             |
-     :p => "Remaining Points: #{current_user.points}"                      |
-    }                                                                      |
+  = render :partial => "shared/slogan", :locals => { :h2span => "Welcome",                                                        |
+     :h2 => current_user.name,                                                                                                    |
+     :p => "Remaining Points: #{current_user.points.round(2)} #{link_to("Purchase More", purchase_points_path, :remote => true)}" |
+    }                                                                                                                             |
   %h2.extra
     My Current Tasks #{link_to "Request New Translation ", new_task_path}
   .box.extra

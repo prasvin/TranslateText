@@ -7,7 +7,7 @@
   %div#tasklist
     - @microtasks.each do |microtask|
       %h3
-        = "Paragraph #{microtask.paragraph_index + 1}"
+        = "Paragraph#{microtask.paragraph_index + 1}"
         ="current status :#{microtask.status}"
       %div
         %div

@@ -1,12 +1,19 @@
+<header>
+  <div class="container">
 <% if user_signed_in? %>
+  <% if current_user.type == "Requester" %>
+    <%= render "shared/requester_nav" %>
+  <% else%>
+    <%= render "shared/translator_nav" %>
+  <% end %>
 <div id = "login-form">
   <fieldset>
   <%= current_user.name %>
-  <%= link_to "Edit Profile", edit_user_registration_path  %>
   <%= link_to "Sign Out", destroy_user_session_path  %>
   </fieldset>
 </div>
 <% else %>
+  <%= render "shared/empty_nav" %>
   <%= form_tag(user_session_path, :id => "login-form") do %>
     <fieldset>
       <span class="text">
@@ -19,3 +26,5 @@
     </fieldset>
   <% end %>
 <% end %>
+  </div>
+</header>

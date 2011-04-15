@@ -1,0 +1,20 @@
+<div class="header-box">
+  <div class="left">
+    <div class="right">
+      <nav>
+        <ul>
+          <li><%= link_to "Search" , user_root_path %></li>
+          <li><%= link_to "Log" , user_log_path %></li>
+          <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
+        </ul>
+        </nav>
+      <h1>
+        <% if user_signed_in? %>
+          <%= link_to "<span>Translate</span>Text".html_safe, user_root_path %>
+        <% else %>
+          <%= link_to "<span>Translate</span>Text".html_safe, :root %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+</div>

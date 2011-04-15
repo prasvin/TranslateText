@@ -16,6 +16,13 @@ class Microtask < ActiveRecord::Base
   scope :open, where('status = ?', "Open")
   scope :accepted, where('status = ?', "Accepted")
 
+  scope :with_user, lambda {|user_id| self.joins(:task) & Task.where(:requester_id == user_id) }
+  scope :with_log_entry, lambda {|id| self.joins(:log_entries) & LogEntry.where(:microtask_id == id) }
+
+  def name
+    "#{self.task.title}[#{self.paragraph_index}]"
+  end
+
   def clear_status
     if self.status == "Processing"
       self.status = "Open"

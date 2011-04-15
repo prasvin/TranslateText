@@ -42,6 +42,7 @@ class HomeController < ApplicationController
       current_user.points += params[:points].to_f
       if current_user.save
         flash[:notice] = "#{params[:points]} points added"
+        current_user.microtasks.first.log_entries.create(:message => "#{params[:points]} Points Purchased", :user_id => current_user.id)
         redirect_to user_root_path
       else
         flash[:notice] = "Your points cannot be been added"
@@ -53,7 +54,11 @@ class HomeController < ApplicationController
   end
 
   def log
-    @log = LogEntry.where(:user_id => current_user.id)
+    if current_user.type == "Translator"
+      @log = LogEntry.where(:user_id => current_user.id).page(params[:page]).per(20)
+    else
+      @log = current_user.log_entries
+    end
   end
 
 end

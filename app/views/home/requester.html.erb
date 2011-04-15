@@ -9,50 +9,48 @@
   <div class="box extra">
     <div class="left-indent line-ver1">
 
-              <article class="col-1 indent">
-                <h4 class="aligncenter">Title</h4>
-                <ul class="info-list1 ">
-                  <% @tasks.each do |task| %>
-                    <li><%= link_to task.title, task_path(task) %></li>
-                  <% end %>
-                </ul>
-              </article>
-              <article class="col-2 indent">
-                <h4 class="aligncenter">From</h4>
-                <ul class="info-list1 alt">
-                  <% @tasks.each do |task| %>
-                    <li><%= task.get_language_from.name %></li>
-                  <% end %>
-                </ul>
-              </article>
-              <article class="col-3 indent">
-                <h4 class="aligncenter">To</h4>
-                <ul class="info-list1 alt">
-                   <% @tasks.each do |task| %>
-                      <li><%= task.get_language_to.name %></li>
-                    <% end %>
-                </ul>
-              </article>
-              <article class="col-4 indent">
-                <h4 class="aligncenter">Deadline</h4>
-                <ul class="info-list1 alt">
-                   <% @tasks.each do |task| %>
-                      <li><%= task.deadline.to_date %></li>
-                    <% end %>
-                </ul>
+      <article class="col-1 indent">
+        <h4 class="aligncenter">Title</h4>
+        <ul class="info-list1 ">
+          <% @tasks.each do |task| %>
+          <li><%= link_to task.title, task_path(task) %></li>
+          <% end %>
+        </ul>
+      </article>
+      <article class="col-2 indent">
+        <h4 class="aligncenter">From</h4>
+        <ul class="info-list1 alt">
+          <% @tasks.each do |task| %>
+          <li><%= task.get_language_from.name %></li>
+          <% end %>
+        </ul>
+      </article>
+      <article class="col-3 indent">
+        <h4 class="aligncenter">To</h4>
+        <ul class="info-list1 alt">
+          <% @tasks.each do |task| %>
+          <li><%= task.get_language_to.name %></li>
+          <% end %>
+        </ul>
+      </article>
+      <article class="col-4 indent">
+        <h4 class="aligncenter">Deadline</h4>
+        <ul class="info-list1 alt">
+          <% @tasks.each do |task| %>
+          <li><%= task.deadline.to_date %></li>
+          <% end %>
+        </ul>
 
-              </article>
-              <article class="col-5 indent">
-                <h4 class="aligncenter">Completed</h4>
-                <ul class="info-list1 alt">
-                   <% @tasks.each do |task| %>
-                      <li><%= "#{task.completed} %" %></li>
-                    <% end %>
-                </ul>
-              </article>
-              <div class="clear"></div>
-
-      </div>
+      </article>
+      <article class="col-5 indent">
+        <h4 class="aligncenter">Completed</h4>
+        <ul class="info-list1 alt">
+          <% @tasks.each do |task| %>
+          <li><%= "#{task.completed} %" %></li>
+          <% end %>
+        </ul>
+      </article>
+      <div class="clear"></div>
 
   </div>
 </div>
